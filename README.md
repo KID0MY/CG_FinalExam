@@ -1,8 +1,10 @@
-For alvaro: You asked me how to fix the shaders turning pink when compiling the game.
+**For alvaro: You asked me how to fix the shaders turning pink when compiling the game.**
 
 # CG_FinalExam
 Final Exam For Intro To Computer Graphics
 
+
+# The Shaders
 The game chosen to be recreated was Pacman. To Improve on its design, i decided to use shaders like The Flat Color Shader, Flat Color with Shadows, Scrolling Texture,The Hologram Shader and Rim Lighthing.
 
 To Give Pacman his autentic look i decided to use a Flat Color with shaodws shader, that way he can be his usual Bright yellow but giving some 3d perspective with the utilization of shadows. it was super simple to implement and in the end i like how the result looks. The shader is a 2 pass shader where, first it give a shadow to the object and then in the 2 pass, it gives the object the ability to cast shadow.
@@ -24,7 +26,7 @@ For the background of the game I utilized the Hologram shader since it is highly
 When i saw the game i had to re-create i had the perfect use for the scrolling Shader, i had an idea of making an hardcore pacman, and the scrolling shader would be, and was used to make a flame that would scroll, giving the idea of movement on the scene. I think the biggest modiffication i implemented to the shader was the possiblity of making it transparent, making so i could use images with transparancy and not obstruct the players visibility of the game.
 <img width="770" height="632" alt="image" src="https://github.com/user-attachments/assets/a0043733-cf33-4ba9-9156-65df2a345c8a" />
 
-
+# The Code
 To create a cohesive game with a game loop i addpated the previously provided player code to count how many palletes were left and how many lifes the player still had before dying.
 <img width="1160" height="394" alt="image" src="https://github.com/user-attachments/assets/d130e4d8-ead6-41b2-91d0-e29dcbff6099" />
 <img width="1112" height="316" alt="image" src="https://github.com/user-attachments/assets/16d51697-dc99-4cd3-b30f-9379b7af3928" />
