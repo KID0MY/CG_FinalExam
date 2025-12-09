@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Hologram
-  m_Shader: {fileID: 4800000, guid: 3e5691b5a5e8640428cda990acd74a68, type: 3}
+  m_Name: M_SolidShader
+  m_Shader: {fileID: 4800000, guid: dd546d001f7327b42810558f19018848, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -22,21 +22,10 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+    m_TexEnvs: []
     m_Ints: []
-    m_Floats:
-    - _FresnelPower: 5
-    - _LineFrequency: 60
-    - _LineSpeed: 1
-    - _RimIntensity: 1.5
-    - _Transparency: 1
+    m_Floats: []
     m_Colors:
-    - _FresnelColor: {r: 0, g: 0.8, b: 1, a: 1}
-    - _LineColor: {r: 0.5235849, g: 0.14077517, b: 0.23078845, a: 1}
-    - _MainColor: {r: 0.12128426, g: 0.15122, b: 0.3254717, a: 1}
+    - _BaseColor: {r: 0, g: 0.0074261446, b: 0.49056602, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
