@@ -6,6 +6,7 @@ Shader "LucasShaders/S_Hologram"
         _MainColor("Main Color", Color) = (1,1,1,1)
         _LineColor ("Line Color", Color) = (0, 1, 1, 1)
         _LineSpeed ("Line Speed", Float) = 1.0
+        _LineStenght ("Line Strengh", Float) = 1.0
         _LineFrequency ("Line Frequency", Float) = 10.0 
         _Transparency ("Transparency", Range(0, 1)) = 0.5
         }
@@ -52,6 +53,7 @@ Shader "LucasShaders/S_Hologram"
             float _LineSpeed;
             float _LineFrequency;
             float _Transparency;
+            float _LineStenght;
 
             Varyings vert(Attributes IN)
             {
@@ -76,9 +78,9 @@ Shader "LucasShaders/S_Hologram"
                 // Scrolling lines effect
                 float lineValue = sin(IN.positionOS.x * _LineFrequency + _Time.y * _LineSpeed);
                 half3 lineColor = _LineColor.rgb * step(0.5, lineValue);  // Creates sharp scan lines
-
+                
                 // Combine the texture color, fresnel rim, and scan lines
-                half3 finalColor = _MainColor + lineColor;
+                half3 finalColor = _MainColor + (lineColor * _LineStenght);
 
                 // Apply transparency
                 return half4(finalColor, _Transparency);

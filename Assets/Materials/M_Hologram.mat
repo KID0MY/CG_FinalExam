@@ -32,11 +32,12 @@ Material:
     - _FresnelPower: 5
     - _LineFrequency: 60
     - _LineSpeed: 1
+    - _LineStenght: 18.96
     - _RimIntensity: 1.5
     - _Transparency: 1
     m_Colors:
     - _FresnelColor: {r: 0, g: 0.8, b: 1, a: 1}
-    - _LineColor: {r: 0.5235849, g: 0.14077517, b: 0.23078845, a: 1}
+    - _LineColor: {r: 0, g: 0.1896327, b: 0.43867922, a: 1}
     - _MainColor: {r: 0.12128426, g: 0.15122, b: 0.3254717, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
