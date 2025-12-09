@@ -1,9 +1,13 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
+    private int PelletCount;
+    private int PacLifes = 3;
+    public TMP_Text PacLife;
     public float speed = 5f; // Movement speed
     public GameObject player;
     void Update()
@@ -16,6 +20,13 @@ public class Movement : MonoBehaviour
 
         // Apply movement
         transform.Translate(direction * speed * Time.deltaTime);
+        
+        if (PelletCount >= 7 || Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+        PacLife.text = "Lifes Left " +PacLifes.ToString();
+        
     }
 
     private void OnCollisionEnter(UnityEngine.Collision other)
@@ -23,10 +34,19 @@ public class Movement : MonoBehaviour
         if (other.gameObject.CompareTag("Pellet")) 
         { 
             Destroy(other.gameObject);
+            PelletCount++;
         }
         if (other.gameObject.CompareTag("Enemy"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            if (PacLifes <= 0)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+            else
+            {
+                PacLifes--;
+                gameObject.transform.position = new Vector3(0,2,0);
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-Shader "Custom/S_CrollingTexture"
+Shader "Custom/S_ScrollingTexture"
 {
     Properties
     {
@@ -10,8 +10,8 @@ Shader "Custom/S_CrollingTexture"
 
     SubShader
     {
-        Tags { "RenderPipeline" = "UniversalRenderPipeline" "RenderType" = "Opaque" }
-
+        Tags { "RenderPipeline" = "UniversalRenderPipeline" "RenderType" = "Transparent" }
+        Blend SrcAlpha OneMinusSrcAlpha
         Pass
         {
             HLSLPROGRAM
@@ -35,9 +35,10 @@ Shader "Custom/S_CrollingTexture"
 
             TEXTURE2D(_MainTex);
             SAMPLER(sampler_MainTex);
+            float4 _MainTex_ST;
 
-            TEXTURE2D(_FoamTex);
-            SAMPLER(sampler_FoamTex);
+            TEXTURE2D(_TopTex);
+            SAMPLER(sampler_TopTex);
 
             float _ScrollX;
             float _ScrollY;
@@ -49,7 +50,7 @@ Shader "Custom/S_CrollingTexture"
                 OUT.positionHCS = TransformObjectToHClip(IN.positionOS.xyz);  // Transform object position to clip space
 
                 // Pass UVs to fragment shader
-                OUT.uv = IN.uv;
+                OUT.uv = TRANSFORM_TEX(IN.uv, _MainTex);
                 return OUT;
             }
 
@@ -64,10 +65,10 @@ Shader "Custom/S_CrollingTexture"
 
                 // Sample both textures using the scrolled UV coordinates
                 half4 water = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, scrolledUV);
-                half4 foam = SAMPLE_TEXTURE2D(_FoamTex, sampler_FoamTex, scrolledFoamUV);
+                half4 foam = SAMPLE_TEXTURE2D(_TopTex, sampler_TopTex, scrolledFoamUV);
 
                 // Blend both textures
-                half4 finalColor = (water + foam) * 0.5;
+                half4 finalColor = (water + foam);
                 
                 return finalColor;
             }
