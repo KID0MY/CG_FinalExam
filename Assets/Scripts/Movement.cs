@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
-    private int PelletCount;
+    private int PelletCount = 0;
     private int PacLifes = 3;
     public TMP_Text PacLife;
     public float speed = 5f; // Movement speed
@@ -23,6 +23,7 @@ public class Movement : MonoBehaviour
         
         if (PelletCount >= 7 || Input.GetKeyDown(KeyCode.Escape))
         {
+            Debug.Log("YOU WIN!");
             Application.Quit();
         }
         PacLife.text = "Lifes Left " +PacLifes.ToString();
@@ -34,7 +35,9 @@ public class Movement : MonoBehaviour
         if (other.gameObject.CompareTag("Pellet")) 
         { 
             Destroy(other.gameObject);
+            print(PelletCount);
             PelletCount++;
+            print(PelletCount);
         }
         if (other.gameObject.CompareTag("Enemy"))
         {

@@ -10,7 +10,7 @@ Shader "Custom/S_ScrollingTexture"
 
     SubShader
     {
-        Tags { "RenderPipeline" = "UniversalRenderPipeline" "RenderType" = "Transparent" }
+        Tags { "RenderPipeline" = "UniversalPipeline" "RenderType" = "Transparent" }
         Blend SrcAlpha OneMinusSrcAlpha
         Pass
         {
